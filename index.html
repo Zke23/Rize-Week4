@@ -18,6 +18,10 @@
         <button class="nav-item" type="button" data-view="notifications">Notifications</button>
         <button class="nav-item" type="button" data-view="messages">Messages</button>
       </nav>
+      <button class="theme-toggle" type="button" aria-label="Toggle light and dark mode">
+        <span class="theme-icon">☾</span>
+        <span class="theme-label">Dark</span>
+      </button>
       <button class="compose-btn" type="button">Create</button>
     </header>
 
@@ -351,6 +355,45 @@
         </div>
       </div>
     </aside>
+
+    <div class="create-modal" id="createModal" aria-hidden="true">
+      <div class="create-modal-card" role="dialog" aria-modal="true" aria-labelledby="createModalTitle">
+        <div class="create-header">
+          <div>
+            <p class="eyebrow">Create a post</p>
+            <h3 id="createModalTitle">Share your moment</h3>
+          </div>
+          <button class="create-close" type="button" aria-label="Close create post">✕</button>
+        </div>
+
+        <div class="create-layout">
+          <div class="composer-panel">
+            <label class="composer-label" for="postComposer">Your caption</label>
+            <textarea id="postComposer" rows="7" placeholder="What are you up to today?"></textarea>
+
+            <div class="composer-tools">
+              <button class="tool-btn" type="button">Add photo</button>
+              <button class="tool-btn" type="button">Add video</button>
+              <button class="tool-btn" type="button">Location</button>
+            </div>
+
+            <div class="composer-actions">
+              <button class="secondary-btn" type="button" data-close-create>Cancel</button>
+              <button class="primary-btn" type="button" id="publishPostBtn">Publish</button>
+            </div>
+          </div>
+
+          <aside class="inspiration-panel">
+            <div class="inspiration-header">
+              <p class="eyebrow">Trending now</p>
+              <h4>Post inspiration</h4>
+            </div>
+
+            <div class="trend-grid" id="trendGrid"></div>
+          </aside>
+        </div>
+      </div>
+    </div>
 
     <section class="messages-page" id="messagesPage" aria-label="Messages page">
       <div class="messages-shell">

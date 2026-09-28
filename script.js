@@ -26,6 +26,15 @@ document.querySelectorAll('.like-btn').forEach((button) => {
 const navButtons = document.querySelectorAll('.nav-item');
 const feedPanel = document.querySelector('.feed-panel');
 const appBody = document.body;
+const themeToggle = document.querySelector('.theme-toggle');
+const themeLabel = document.querySelector('.theme-label');
+const themeIcon = document.querySelector('.theme-icon');
+const createButton = document.querySelector('.compose-btn');
+const createModal = document.getElementById('createModal');
+const createClose = document.querySelector('.create-close');
+const publishPostBtn = document.getElementById('publishPostBtn');
+const postComposer = document.getElementById('postComposer');
+const trendGrid = document.getElementById('trendGrid');
 const commentDrawer = document.getElementById('commentDrawer');
 const notificationPopup = document.getElementById('notificationPopup');
 const commentTitle = document.querySelector('.comment-header-title');
@@ -46,6 +55,186 @@ const toggleFollow = (button) => {
   const isFollowing = button.classList.toggle('following');
   button.textContent = isFollowing ? 'Following' : 'Follow';
 };
+
+const applyTheme = (isDark) => {
+  appBody.classList.toggle('dark-theme', isDark);
+  const label = isDark ? 'Light' : 'Dark';
+  const icon = isDark ? '☀' : '☾';
+
+  if (themeLabel) themeLabel.textContent = label;
+  if (themeIcon) themeIcon.textContent = icon;
+  localStorage.setItem('rize-theme', isDark ? 'dark' : 'light');
+};
+
+const savedTheme = localStorage.getItem('rize-theme');
+if (savedTheme === 'dark') {
+  applyTheme(true);
+} else {
+  applyTheme(false);
+}
+
+themeToggle?.addEventListener('click', () => {
+  const isDark = !appBody.classList.contains('dark-theme');
+  applyTheme(isDark);
+});
+
+const trendSuggestions = [
+  { title: 'Golden hour', detail: 'Warm light, low angle shots, and reflective captions.' },
+  { title: 'Slow living', detail: 'Quiet routines, café moments, and softer storytelling.' },
+  { title: 'City strolls', detail: 'Street textures, people in motion, and urban details.' },
+  { title: 'At home', detail: 'Cozy corners, recipes, and everyday rituals.' },
+  { title: 'Weekend reset', detail: 'Brunch, books, and a slower pace for the day.' }
+];
+
+function renderTrends() {
+  if (!trendGrid) return;
+
+  trendGrid.innerHTML = trendSuggestions
+    .map(
+      (trend, index) => `
+        <button class="trend-chip ${index === 0 ? 'selected' : ''}" type="button" data-trend="${trend.title}">
+          <strong>${trend.title}</strong>
+          <span>${trend.detail}</span>
+        </button>
+      `
+    )
+    .join('');
+
+  trendGrid.querySelectorAll('.trend-chip').forEach((chip) => {
+    chip.addEventListener('click', () => {
+      trendGrid.querySelectorAll('.trend-chip').forEach((item) => item.classList.remove('selected'));
+      chip.classList.add('selected');
+
+      const selectedTrend = chip.dataset.trend;
+      if (postComposer && !postComposer.value.trim()) {
+        postComposer.value = `A little ${selectedTrend.toLowerCase()} energy for today...`;
+      }
+    });
+  });
+}
+
+function openCreateModal() {
+  createModal?.classList.add('open');
+  createModal?.setAttribute('aria-hidden', 'false');
+  setTimeout(() => postComposer?.focus(), 100);
+}
+
+function closeCreateModal() {
+  createModal?.classList.remove('open');
+  createModal?.setAttribute('aria-hidden', 'true');
+}
+
+function addNewPost() {
+  const feedStream = document.querySelector('.feed-stream');
+  if (!feedStream) return;
+
+  const selectedTrend = document.querySelector('.trend-chip.selected')?.dataset.trend || 'Slow living';
+  const rawText = postComposer?.value.trim();
+  const text = rawText || `A little ${selectedTrend.toLowerCase()} energy for today — making space for the small things.`;
+
+  const newPost = document.createElement('article');
+  newPost.className = 'post-card';
+  newPost.innerHTML = `
+    <header class="post-header">
+      <div class="user-group">
+        <div class="avatar">R</div>
+        <div class="user-meta">
+          <h1>Ruby Lane</h1>
+          <p>@rubylane • just now</p>
+        </div>
+      </div>
+      <button class="follow-btn" type="button">Follow</button>
+    </header>
+
+    <section class="post-body">
+      <p class="caption">${text}</p>
+      <div class="hashtags">#${selectedTrend.replace(/\s+/g, '')} #DailyLife #NewMoment</div>
+    </section>
+
+    <section class="media-area" aria-label="New social post artwork">
+      <div class="media-badge">Fresh post</div>
+      <div class="scene scene-one">
+        <div class="sun"></div>
+        <div class="mountain mountain-left"></div>
+        <div class="mountain mountain-right"></div>
+        <div class="lake"></div>
+      </div>
+    </section>
+
+    <section class="engagement-bar" aria-label="Post engagement">
+      <span class="stats likes-count">0.1k likes</span>
+      <span class="stats">0 comments</span>
+      <span class="stats">0 shares</span>
+    </section>
+
+    <nav class="action-row" aria-label="Post actions">
+      <button class="action-btn like-btn" type="button" aria-label="Like post">
+        <span class="icon">♥</span>
+        <span class="label">Like</span>
+      </button>
+      <button class="action-btn" type="button" aria-label="Comment on post">
+        <span class="icon">💬</span>
+        <span class="label">Comment</span>
+      </button>
+      <button class="action-btn" type="button" aria-label="Share post">
+        <span class="icon">↗</span>
+        <span class="label">Share</span>
+      </button>
+    </nav>
+  `;
+
+  feedStream.prepend(newPost);
+  document.querySelectorAll('.follow-btn').forEach((button) => {
+    button.addEventListener('click', () => toggleFollow(button));
+  });
+
+  document.querySelectorAll('.action-btn[aria-label="Comment on post"]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const postCard = button.closest('.post-card');
+      openComments(postCard);
+    });
+  });
+
+  document.querySelectorAll('.like-btn').forEach((button) => {
+    const likeText = button.closest('.post-card')?.querySelector('.likes-count');
+    if (!likeText) return;
+
+    let liked = button.classList.contains('active');
+    let likeValue = Number.parseFloat(likeText.textContent) || 0.1;
+
+    button.addEventListener('click', () => {
+      liked = !liked;
+      button.classList.toggle('active', liked);
+      likeText.textContent = liked ? `${likeValue.toFixed(1)}k likes` : `${(likeValue + 0.1).toFixed(1)}k likes`;
+      if (liked) {
+        button.querySelector('.label').textContent = 'Like';
+      } else {
+        button.querySelector('.label').textContent = 'Liked';
+      }
+    });
+  });
+
+  closeCreateModal();
+  if (postComposer) postComposer.value = '';
+}
+
+createButton?.addEventListener('click', openCreateModal);
+createClose?.addEventListener('click', closeCreateModal);
+publishPostBtn?.addEventListener('click', addNewPost);
+document.querySelector('[data-close-create]')?.addEventListener('click', closeCreateModal);
+createModal?.addEventListener('click', (event) => {
+  if (event.target === createModal) {
+    closeCreateModal();
+  }
+});
+
+window.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && createModal?.classList.contains('open')) {
+    closeCreateModal();
+  }
+});
+
+renderTrends();
 
 const conversations = [
   {
