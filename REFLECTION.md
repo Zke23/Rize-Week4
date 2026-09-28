@@ -17,3 +17,15 @@ As I said before, my main approach throughout the project would be to ask for a 
 ![Specific prompt waiting for a modiying follow up](images/Screenshot%202026-09-27%20192803.png)
 
 ![Follow up prompt to modify results](images/Screenshot%202026-09-27%20193008.png)
+
+3. What parts of the development process with GitHub Copilot surprised you?
+
+I've never been a prompt/engineer as I've always enjoyed writing my code independently and original. Personally, I've been dismissive towards the use of AI and disregarded its use as laziness. However, that has changed recently. What's shocked me is the sheer power and efficency that is has. A good programmer can turn into an incredible one if he learns how to ultilize AI. Aside from the intial shock of AI's power, nothing else really surprised me. 
+
+4. What did you learn about the technology you used that you didn't know before?
+
+As I've iterated before, I've learned about it's efficiency. Also, I've learned about copilots intergration within VScode. I find it interesting how well they operate within each other. Whenever I send a prompt, the results can be thrown away or kept, which is very useful. I had a couple prompts which were discarded because they didn't reach what I had in mind for the project. 
+
+5. What would you do differently if you had to build this again?
+
+After experimenting with prompting, I realize where I should utilize broad and specific prompts. I know now that I should set boundaries on a specific prompt if I know that it can make unwanted changes to avoid conflict with other areas of the project. For example, If I wanted to add a feature by prompting " Build me a like button and comment section for post", that is very broad. Instead, I should be more specific and ask " Create a single React component named CommentSection. It should accept a prop postID: string and an array of exsisting Comment objects.". This prompt is much more specific and can help avoid conflicting blocks of code. Now, this kind of prompting might require more knowledge of whatever language of code your using. Since I'm not good as js, It would take me a lot longer to prompt like that. 
