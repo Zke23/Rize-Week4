@@ -30,4 +30,4 @@ As I've iterated before, I've learned about it's efficiency. Also, I've learned 
 
 After experimenting with prompting, I realize where I should utilize broad and specific prompts. I know now that I should set boundaries on a specific prompt if I know that it can make unwanted changes to avoid conflict with other areas of the project. For example, If I wanted to add a feature by prompting " Build me a like button and comment section for post", that is very broad. Instead, I should be more specific and ask " Create a single React component named CommentSection. It should accept a prop postID: string and an array of exsisting Comment objects.". This prompt is much more specific and can help avoid conflicting blocks of code. Now, this kind of prompting might require more knowledge of whatever language of code your using. Since I'm not good as js, It would take me a lot longer to prompt like that. Below would be an example of one of my specific prompts for the project. However, it's not as specific as it could be. 
 
-[Broad Prompt](images/Screenshot%202026-09-27%20195125.png)
+![Broad Prompt](images/Screenshot%202026-09-27%20195125.png)
