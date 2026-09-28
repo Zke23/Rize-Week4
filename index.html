@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Post Mockup</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar" aria-label="Primary navigation">
+      <div class="brand">Rize</div>
+      <nav class="top-nav" aria-label="Main navigation">
+        <button class="nav-item active" type="button" data-view="home">Home</button>
+        <button class="nav-item" type="button" data-view="explore">Explore</button>
+        <button class="nav-item" type="button" data-view="notifications">Notifications</button>
+        <button class="nav-item" type="button" data-view="messages">Messages</button>
+      </nav>
+      <button class="compose-btn" type="button">Create</button>
+    </header>
+
+    <div class="app-layout">
+      <aside class="profile-sidebar" aria-label="User profile panel">
+        <div class="profile-card">
+          <div class="profile-cover"></div>
+
+          <div class="profile-content">
+            <div class="profile-avatar">R</div>
+            <h2>Ruby Lane</h2>
+            <p class="profile-handle">@rubylane</p>
+
+            <div class="profile-bio">
+              Morning coffee, slow weekends, and little moments worth keeping.
+            </div>
+
+            <div class="profile-stats">
+              <div>
+                <strong>18.9k</strong>
+                <span>Followers</span>
+              </div>
+              <div>
+                <strong>932</strong>
+                <span>Following</span>
+              </div>
+              <div>
+                <strong>1.4k</strong>
+                <span>Posts</span>
+              </div>
+            </div>
+
+            <button class="profile-btn" type="button">Edit Profile</button>
+          </div>
+        </div>
+      </aside>
+
+      <main class="feed-panel" aria-label="Main feed">
+        <div class="feed-header">
+          <h3 id="feed-title">Feed</h3>
+          <button class="feed-filter" type="button">Trending</button>
+        </div>
+
+        <section class="explore-grid" aria-label="Recommended content">
+          <article class="mini-post mini-post-one">
+            <div class="mini-header">
+              <div class="mini-avatar">L</div>
+              <div>
+                <h4>Lena Hart</h4>
+                <p>@lenahart</p>
+              </div>
+            </div>
+            <p>Late-night journaling, candlelight, and a playlist that feels like a memory.</p>
+            <div class="mini-art mini-art-one"></div>
+          </article>
+
+          <article class="mini-post mini-post-two">
+            <div class="mini-header">
+              <div class="mini-avatar mini-avatar-alt">M</div>
+              <div>
+                <h4>Marco Lee</h4>
+                <p>@marco</p>
+              </div>
+            </div>
+            <p>Sunset walks, tiny cafés, and the kind of conversations you don’t want to end.</p>
+            <div class="mini-art mini-art-two"></div>
+          </article>
+
+          <article class="mini-post mini-post-three">
+            <div class="mini-header">
+              <div class="mini-avatar mini-avatar-alt-two">J</div>
+              <div>
+                <h4>Jules Park</h4>
+                <p>@julespark</p>
+              </div>
+            </div>
+            <p>Weekend reset: fresh flowers, slow cooking, and an easy Sunday rhythm.</p>
+            <div class="mini-art mini-art-three"></div>
+          </article>
+
+          <article class="mini-post mini-post-four">
+            <div class="mini-header">
+              <div class="mini-avatar mini-avatar-alt-three">S</div>
+              <div>
+                <h4>Sophia Reed</h4>
+                <p>@sreed</p>
+              </div>
+            </div>
+            <p>Found a quiet place to read, breathe, and just be present for a while.</p>
+            <div class="mini-art mini-art-four"></div>
+          </article>
+        </section>
+
+        <div class="feed-stream">
+          <article class="post-card post-one" aria-label="Social media post card">
+            <header class="post-header">
+              <div class="user-group">
+                <div class="avatar">R</div>
+                <div class="user-meta">
+                  <h1>Ruby Lane</h1>
+                  <p>@rubylane • 2h ago</p>
+                </div>
+              </div>
+
+              <button class="follow-btn" type="button">Follow</button>
+            </header>
+
+            <section class="post-body">
+              <p class="caption">
+                Slow mornings, warm sunlight, and the kind of routine that makes life feel full.
+                Today was one of those soft, golden days I never want to forget. ☀️
+              </p>
+              <div class="hashtags">#EverydayJoy #MorningWalks #GoodVibes</div>
+            </section>
+
+            <section class="media-area" aria-label="Daily life photography">
+              <div class="media-badge">Life Update</div>
+              <div class="scene scene-one">
+                <div class="sun"></div>
+                <div class="mountain mountain-left"></div>
+                <div class="mountain mountain-right"></div>
+                <div class="lake"></div>
+                <div class="spark spark-one"></div>
+                <div class="spark spark-two"></div>
+                <div class="spark spark-three"></div>
+              </div>
+            </section>
+
+            <section class="engagement-bar" aria-label="Post engagement">
+              <span class="stats likes-count">18.4k likes</span>
+              <span class="stats">734 comments</span>
+              <span class="stats">1.2k shares</span>
+            </section>
+
+            <nav class="action-row" aria-label="Post actions">
+              <button class="action-btn like-btn active" type="button" aria-label="Like post">
+                <span class="icon">♥</span>
+                <span class="label">Like</span>
+              </button>
+              <button class="action-btn" type="button" aria-label="Comment on post">
+                <span class="icon">💬</span>
+                <span class="label">Comment</span>
+              </button>
+              <button class="action-btn" type="button" aria-label="Share post">
+                <span class="icon">↗</span>
+                <span class="label">Share</span>
+              </button>
+            </nav>
+          </article>
+
+          <article class="post-card post-two" aria-label="Second social media post card">
+            <header class="post-header">
+              <div class="user-group">
+                <div class="avatar avatar-alt">N</div>
+                <div class="user-meta">
+                  <h1>Noah Brooks</h1>
+                  <p>@noahbrooks • 4h ago</p>
+                </div>
+              </div>
+
+              <button class="follow-btn" type="button">Follow</button>
+            </header>
+
+            <section class="post-body">
+              <p class="caption">
+                Weekend plans: coffee, bookstore browsing, and a long walk with good music.
+                Some days are better when you let them unfold naturally. 🌿
+              </p>
+              <div class="hashtags">#WeekendMood #BookstoreDays #SlowLiving</div>
+            </section>
+
+            <section class="media-area" aria-label="Weekend life scene">
+              <div class="media-badge">Weekend</div>
+              <div class="scene scene-two">
+                <div class="device device-left"></div>
+                <div class="device device-right"></div>
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+              </div>
+            </section>
+
+            <section class="engagement-bar" aria-label="Post engagement">
+              <span class="stats likes-count">9.8k likes</span>
+              <span class="stats">421 comments</span>
+              <span class="stats">398 shares</span>
+            </section>
+
+            <nav class="action-row" aria-label="Post actions">
+              <button class="action-btn like-btn" type="button" aria-label="Like post">
+                <span class="icon">♥</span>
+                <span class="label">Like</span>
+              </button>
+              <button class="action-btn" type="button" aria-label="Comment on post">
+                <span class="icon">💬</span>
+                <span class="label">Comment</span>
+              </button>
+              <button class="action-btn" type="button" aria-label="Share post">
+                <span class="icon">↗</span>
+                <span class="label">Share</span>
+              </button>
+            </nav>
+          </article>
+
+          <article class="post-card post-three" aria-label="Third social media post card">
+            <header class="post-header">
+              <div class="user-group">
+                <div class="avatar avatar-alt-two">A</div>
+                <div class="user-meta">
+                  <h1>Alicia Moore</h1>
+                  <p>@aliciamoore • 1d ago</p>
+                </div>
+              </div>
+
+              <button class="follow-btn" type="button">Follow</button>
+            </header>
+
+            <section class="post-body">
+              <p class="caption">
+                Homemade dinner, a playlist in the background, and my favorite people around the table.
+                Those little rituals are the heart of home. ❤️
+              </p>
+              <div class="hashtags">#HomeSweetHome #FamilyDinner #RealLife</div>
+            </section>
+
+            <section class="media-area" aria-label="Family life artwork">
+              <div class="media-badge">Family</div>
+              <div class="scene scene-three">
+                <div class="card-stack card-one"></div>
+                <div class="card-stack card-two"></div>
+                <div class="card-stack card-three"></div>
+                <div class="badge-pill">+24%</div>
+              </div>
+            </section>
+
+            <section class="engagement-bar" aria-label="Post engagement">
+              <span class="stats likes-count">15.2k likes</span>
+              <span class="stats">882 comments</span>
+              <span class="stats">620 shares</span>
+            </section>
+
+            <nav class="action-row" aria-label="Post actions">
+              <button class="action-btn like-btn" type="button" aria-label="Like post">
+                <span class="icon">♥</span>
+                <span class="label">Like</span>
+              </button>
+              <button class="action-btn" type="button" aria-label="Comment on post">
+                <span class="icon">💬</span>
+                <span class="label">Comment</span>
+              </button>
+              <button class="action-btn" type="button" aria-label="Share post">
+                <span class="icon">↗</span>
+                <span class="label">Share</span>
+              </button>
+            </nav>
+          </article>
+        </div>
+      </main>
+    </div>
+
+    <aside class="comment-drawer" id="commentDrawer" aria-live="polite" aria-label="Comments panel">
+      <div class="comment-header">
+        <h4 class="comment-header-title">Comments</h4>
+        <button class="comment-close" type="button" aria-label="Close comments">✕</button>
+      </div>
+
+      <div class="comment-list">
+        <div class="comment-item">
+          <div class="comment-avatar">M</div>
+          <div class="comment-copy">
+            <strong>Maya</strong>
+            <p>This feels so peaceful and genuine.</p>
+          </div>
+        </div>
+
+        <div class="comment-item">
+          <div class="comment-avatar">J</div>
+          <div class="comment-copy">
+            <strong>Jordan</strong>
+            <p>Love the slow-life energy in this one.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="comment-input-wrap">
+        <input class="comment-input" type="text" placeholder="Write a comment..." />
+        <button class="comment-send" type="button">Post</button>
+      </div>
+    </aside>
+
+    <aside class="notification-popup" id="notificationPopup" aria-live="polite" aria-label="Notification panel">
+      <div class="notification-header">
+        <h4>Notifications</h4>
+        <button class="notification-close" type="button" aria-label="Close notifications">✕</button>
+      </div>
+
+      <div class="notification-list">
+        <div class="notification-item unread">
+          <div class="notification-dot"></div>
+          <div class="notification-copy">
+            <strong>Maya liked your post</strong>
+            <p>“This feels so peaceful and genuine.”</p>
+            <span>2 min ago</span>
+          </div>
+        </div>
+
+        <div class="notification-item">
+          <div class="notification-dot"></div>
+          <div class="notification-copy">
+            <strong>Jordan commented</strong>
+            <p>“Love the slow-life energy in this one.”</p>
+            <span>14 min ago</span>
+          </div>
+        </div>
+
+        <div class="notification-item">
+          <div class="notification-dot"></div>
+          <div class="notification-copy">
+            <strong>New message from Noah</strong>
+            <p>“Want to grab coffee this weekend?”</p>
+            <span>1 hour ago</span>
+          </div>
+        </div>
+
+        <div class="notification-item">
+          <div class="notification-dot"></div>
+          <div class="notification-copy">
+            <strong>Ruby shared your photo</strong>
+            <p>“This is such a cozy moment.”</p>
+            <span>3 hours ago</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <section class="messages-page" id="messagesPage" aria-label="Messages page">
+      <div class="messages-shell">
+        <aside class="messages-sidebar">
+          <div class="messages-header">
+            <h3>Messages</h3>
+            <button class="messages-new" type="button">New</button>
+          </div>
+
+          <div class="messages-list" id="messagesList"></div>
+        </aside>
+
+        <div class="chat-panel">
+          <div class="chat-header">
+            <div class="chat-user">
+              <div class="chat-avatar">M</div>
+              <div>
+                <strong id="chatName">Maya Chen</strong>
+                <span id="chatStatus">Online</span>
+              </div>
+            </div>
+            <button class="chat-back" type="button">Back</button>
+          </div>
+
+          <div class="chat-thread" id="chatThread">
+            <div class="chat-bubble incoming">
+              Hey! I saw your latest post and it feels so calm and real.
+            </div>
+            <div class="chat-bubble outgoing">
+              Thank you, I’ve been trying to enjoy the quieter moments lately.
+            </div>
+            <div class="chat-bubble incoming">
+              I love that. Want to grab a coffee this weekend and catch up?
+            </div>
+          </div>
+
+          <div class="chat-input-wrap">
+            <input type="text" class="chat-input" placeholder="Write a message..." />
+            <button class="chat-send" type="button">Send</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
