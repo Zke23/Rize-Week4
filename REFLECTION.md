@@ -6,4 +6,4 @@ Firstly, I asked Copilot to build a simple html web page designed for social med
 
 Soon after, I asked for a more specific feature, which was a user profile interface. I asked for it to sit on the left side of the page next to a generated feed container. 
 
-![Second prompt / More specific feature](images/Screenshot%202026-09-27%20192138.png\)
+![Second prompt / More specific feature](images/Screenshot%202026-09-27%20192138.png)
